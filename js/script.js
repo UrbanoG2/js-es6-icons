@@ -171,7 +171,6 @@ function createElement (array, container) {
 // Aggiungere alla pagina una select in cui le options corrispondono ai vari tipi di icone (animal, vegetable, user). Quando l'utente seleziona un tipo dalla select, visualizzare solamente le icone corrispondenti.
 
 
-
 }
 
 
@@ -185,6 +184,21 @@ const userFiltered = boxArr.filter(element => element.type === 'user' );
 
 console.log(animalFiltered, vegetableFiltered, userFiltered);
 
-const selection = 
 
-console.log(selection);
+document.getElementById("select").addEventListener('click', function() {
+    
+
+    if (select.value == 'animal') {
+        console.log(animalFiltered);
+    } else if (select.value == 'vegetable') {
+        console.log(vegetableFiltered);
+    } else if (select.value == 'user') {
+        console.log(userFiltered);
+    }
+});
+
+
+
+
+
+
