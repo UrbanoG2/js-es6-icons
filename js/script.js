@@ -1,5 +1,4 @@
-// Milestone 1
-// Partendo dalla struttura dati fornita, visualizzare in pagina un box per ogni icona, in cui è presente il nome dell'icona e l'icona stessa.
+
 
 
 // Milestone 2
@@ -159,7 +158,7 @@ function createElement (array, container) {
         
         <div class="box">
             <div class="box-icon">
-                <i class="${iconName} icon"></i>
+                <i style="color:${object.color}" class="${iconName} icon"></i>
             </div>
 
             <div class="box-title">
@@ -167,8 +166,9 @@ function createElement (array, container) {
             </div>
         </div>
 
-
         `
+
+        
         container.innerHTML += containedElement;
     }
 
