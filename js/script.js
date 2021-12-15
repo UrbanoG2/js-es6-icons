@@ -134,37 +134,8 @@ const boxArr = [
 	}
 ];
 
+console.log(boxArr);
 
-
-// createElement (boxArr, container);
-
-
-// function createElement (array, container) {
-//     for (let i = 0; i < array.length; i++) {
-        
-//         const container = document.getElementById ('container');
-
-//         const object = array[i];
-
-//         let iconName = object.family + ' ' + object.prefix + object.name;
-
-//         const containedElement = `
-        
-//         <div class="box">
-//             <div class="box-icon">
-//                 <i style="color:${object.color}" class="${iconName} icon"></i>
-//             </div>
-
-//             <div class="box-title">
-//                 <h2>${object.name}</h2>
-//             </div>
-//         </div>
-
-//         `
-//         container.innerHTML += containedElement;
-//     }
-
-// }
 
 // Milestone 3
 // Aggiungere alla pagina una select in cui le options corrispondono ai vari tipi di icone (animal, vegetable, user). Quando l'utente seleziona un tipo dalla select, visualizzare solamente le icone corrispondenti.
@@ -172,127 +143,69 @@ const boxArr = [
 
 //filtro le categorie
 
-const animalFiltered = boxArr.filter(element => element.type === 'animal' );
-
-const vegetableFiltered = boxArr.filter(element => element.type === 'vegetable' );
-
-const userFiltered = boxArr.filter(element => element.type === 'user' );
-
-// console.log(animalFiltered, vegetableFiltered, userFiltered);
-
 
 document.getElementById("select").addEventListener('change', function() {
 
     const container = document.getElementById ('container');
+
     container.innerHTML = "";
     
     if (select.value == 'animal') {
-        console.log(animalFiltered);
+
+		const animalFiltered = boxArr.filter(element => element.type === 'animal' );
+		console.log(animalFiltered);
 
         animalFiltered.forEach(object => {
         console.log(animalFiltered);
-        
 
-        const container = document.getElementById ('container');
-        createElement (animalFiltered, container);
-
-
-        function createElement (array, container) {
-
-            let iconName = object.family + ' ' + object.prefix + object.name;
-
-            const containedElement = `
-                
-            <div class="box">
-                <div class="box-icon">
-                    <i style="color:${object.color}" class="${iconName} icon"></i>
-                </div>
-
-                <div class="box-title">
-                        <h2>${object.name}</h2>
-                </div>
-             </div>
-
-                `
-            container.innerHTML += containedElement;
-
-        }
+        createElement (object, container);
 
         });
 
-        
-
     } else if (select.value == 'vegetable') {
-        vegetableFiltered.forEach(object => {
-            console.log(vegetableFiltered);
-            
-    
-            const container = document.getElementById ('container');
 
-            
-            createElement (vegetableFiltered, container);
+		const vegetableFiltered = boxArr.filter(element => element.type === 'vegetable' )
+
+        vegetableFiltered.forEach(object => {
     
+        createElement (object, container);
     
-            function createElement (array, container) {
-    
-                let iconName = object.family + ' ' + object.prefix + object.name;
-    
-                const containedElement = `
-                    
-                <div class="box">
-                    <div class="box-icon">
-                        <i style="color:${object.color}" class="${iconName} icon"></i>
-                    </div>
-    
-                    <div class="box-title">
-                            <h2>${object.name}</h2>
-                    </div>
-                 </div>
-    
-                    `
-                container.innerHTML += containedElement;
-    
-            }
-    
-            });
+        });
 
     } else if (select.value == 'user') {
+
+		const userFiltered = boxArr.filter(element => element.type === 'user' );
+
+
         userFiltered.forEach(object => {
-            console.log(userFiltered);
-            
-            
 
-            const container = document.getElementById ('container');
 
-            createElement (userFiltered, container);
-    
-            
-            function createElement (array, container) {
-    
-                let iconName = object.family + ' ' + object.prefix + object.name;
-    
-                const containedElement = `
-                    
-                <div class="box">
-                    <div class="box-icon">
-                        <i style="color:${object.color}" class="${iconName} icon"></i>
-                    </div>
-    
-                    <div class="box-title">
-                            <h2>${object.name}</h2>
-                    </div>
-                 </div>
-    
-                    `
-                container.innerHTML += containedElement;
-    
-            }
-    
-            })
-        }
+        createElement (object, container);
+		console.log(createElement);
+        })
+    }
 });
 
+function createElement (object, container) {
 
+
+	let iconName = object.family + ' ' + object.prefix + object.name;
+
+	const containedElement = `
+		
+	<div class="box">
+		<div class="box-icon">
+			<i style="color:${object.color}" class="${iconName} icon"></i>
+		</div>
+
+		<div class="box-title">
+				<h2>${object.name}</h2>
+		</div>
+	 </div>
+
+		`
+	container.innerHTML += containedElement;
+}
 
 
 
